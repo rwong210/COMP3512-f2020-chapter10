@@ -8,9 +8,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
    // first hide loaders and main element 
- 
-   // then handle button click 
+   document.querySelector("main").style.display = display = "none";
+   document.querySelector("#loader1").style.display = display = "none";
+   document.querySelector("#loader2").style.display = display = "none";
 
+   // then handle button click 
+   document.querySelector("#fetchButton").addEventListener('click', (e) => {
+      fetch(countryAPI)
+      .then(response => response.json())
+      .then(data => {
+         
+      })
+   })
 
 
    /* -------------------------------------------------------------
