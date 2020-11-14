@@ -41,7 +41,7 @@ function listListen(galleries) {
     });
 }
 
-// populate box a with gallery details
+// populate box a with selected gallery details
 function populateA(gallery) {
     let boxA = document.querySelector(".box.a section");
 
@@ -58,7 +58,7 @@ function populateA(gallery) {
     link.setAttribute("href", `${gallery.link}`);
 }
 
-//  populate box c with a list of paintings in that gallery
+//  populate box c with a list of paintings in selected gallery
 function populateC(gallery) {
     let boxC = document.querySelector(".box.c section");
     let ul = document.querySelector("#paintingList");
@@ -75,22 +75,29 @@ function populateC(gallery) {
         li.textContent = `${p.title}`;
         ul.appendChild(li);
     }
+
+    ul.addEventListener('click', function (e) {
+        let event = e.target;
+        const utterance = new 
+
+    })
 }
 
-function populateD(gallery){
+// populate box d with a satellite view map of the gallery selected
+function populateD(gallery) {
+    // add id="map" to box d
     let boxD = document.querySelector(".box.d");
     boxD.id = "map";
 
-
+    // set latitude and longitude object for map center
     let latlng = {
         lat: gallery.location.latitude,
         lng: gallery.location.longitude
     }
-
     initMap(latlng);
-
 }
 
+// intitiate an embedded google map for the gallery location
 function initMap(latlng) {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 18,

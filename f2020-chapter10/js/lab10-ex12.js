@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //     speechSynthesis.speak(utterance);
     // });
     window.speechSynthesis.addEventListener('voiceschanged', () => {
+        let select = document
         let voices = this.getVoices();
         voices.forEach((voice) => {
             console.log(voice.name + " - " + voice.lang)});
