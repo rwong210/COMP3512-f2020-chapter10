@@ -33,30 +33,28 @@ const stocks = [{
 // your solutions here
 
 //1. regular loop
-for (let stock of stocks) {
-  let amt = function () {
-    return stock.price * stock.units;
-  }
-  stock.total = amt;
-};
-console.log(stocks[0].total());
+// for (let stock of stocks) {
+//   stock["total"] = function () {
+//     return stock.price * stock.units;
+//   }
+// };
+// console.log(stocks[0].total());
 
 //1. forEach method
 stocks.forEach(stock => {
-  let amt = () => stock.price * stock.units;
-  stock.total = amt;
+  stock["total"] = () => stock.price * stock.units;
 });
 console.log(stocks[1].total());
 
 //2. regular loop
 for (stock of stocks) {
-  if (stock.symbol == "CAT") {
+  if (stock.symbol === "CAT") {
     console.log(stock);
   }
 }
 
 //2. find method
-console.log(stocks.find(stock => stock.symbol == "CAT"));
+console.log(stocks.find(stock => stock.symbol === "CAT"));
 
 //3. regular loop
 const stocks2 = [];
@@ -78,7 +76,6 @@ const strings = [];
 for (stock of stocks){
   strings.push(`<li>${stock.name}</li>`);
 }
-
 console.log(strings);
 
 //4. map method
