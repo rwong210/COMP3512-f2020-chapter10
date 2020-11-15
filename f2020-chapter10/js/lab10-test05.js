@@ -38,6 +38,7 @@ function listListen(galleries) {
         populateA(gallery);
         populateC(gallery);
         populateD(gallery);
+        e.stopPropagation();
     });
 }
 
@@ -73,13 +74,18 @@ function populateC(gallery) {
     for (let p of paintings) {
         let li = document.createElement("li");
         li.textContent = `${p.title}`;
+        li.style.listStyleType = "none";
         ul.appendChild(li);
     }
 
     ul.addEventListener('click', function (e) {
+        e.stopPropagation();
         let event = e.target;
-        const utterance = new 
-
+        let painting = paintings.find(g => e.target.textContent == g.title);
+        let str = painting.description;
+        const utterance = new SpeechSynthesisUtterance(str);
+        speechSynthesis.speak(utterance);
+        
     })
 }
 
